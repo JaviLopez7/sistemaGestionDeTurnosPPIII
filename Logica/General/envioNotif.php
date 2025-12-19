@@ -18,14 +18,14 @@ function configurarMailer(): PHPMailer
         $mail->isSMTP();
         $mail->Host       = 'smtp.gmail.com';
         $mail->SMTPAuth   = true;
-        $mail->Username   = 'no.responder.sistema.turnos@gmail.com';
-        $mail->Password   = 'xsqrhykbyyihmrhy';
+        $mail->Username   = 'xxjavicaixx@gmail.com';
+        $mail->Password   = 'dfekgalihevfnqqw';
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port       = 587;
         $mail->CharSet = 'UTF-8';
         $mail->Encoding = 'base64';
         $mail->ContentType = 'text/html; charset=UTF-8';
-        $mail->setFrom('no.responder.sistema.turnos@gmail.com', 'no-responder-gestion-turnos');
+        $mail->setFrom('xxjavicaixx@gmail.com', 'no-responder-gestion-turnos');
         $mail->isHTML(true);
     } catch (Exception $e) {
         error_log("Error configurando PHPMailer: {$mail->ErrorInfo}");

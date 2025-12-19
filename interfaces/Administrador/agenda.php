@@ -1788,7 +1788,7 @@ select option{padding:8px}
       <a class="btn<?= $tab==='feriados'?'':' btn-outline' ?>" href="agenda.php?tab=feriados"><i class="fa fa-umbrella-beach"></i> Feriados</a>
     <?php endif; ?>
     <?php if ($HAS_EXCEPCIONES): ?>
-      <a class="btn<?= $tab==='excepciones'?'':' btn-outline' ?>" href="agenda.php?tab=excepciones"><i class="fa fa-ban"></i> Excepciones</a>
+      <!-- <a class="btn<?= $tab==='excepciones'?'':' btn-outline' ?>" href="agenda.php?tab=excepciones"><i class="fa fa-ban"></i> Excepciones</a> -->
     <?php endif; ?>
   </div>
 

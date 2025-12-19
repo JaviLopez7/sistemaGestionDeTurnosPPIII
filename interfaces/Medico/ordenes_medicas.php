@@ -12,7 +12,7 @@
  */
 
 // ===== Seguridad / Sesión =====
-$rol_requerido = 2; // Médico
+$rol_requerido = [2, 3];
 require_once('_boot_medico.php');
 require_once('../../Logica/General/verificarSesion.php');
 
@@ -73,7 +73,11 @@ body{font-family:Inter,system-ui,-apple-system,Segoe UI,Arial,sans-serif;backgro
 .header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;gap:10px;flex-wrap:wrap}
 .page-title{display:flex;align-items:center;gap:12px;margin:0}
 .page-title i{color:var(--primary);font-size:28px}
-.kicker{font-size:14px;color:var(--muted);margin-top:4px}
+.kicker {
+  font-size: 20px;
+  color: #515151ff; 
+  margin-top: 4px;
+}
 
 .btn{display:inline-flex;gap:10px;align-items:center;border:none;border-radius:12px;padding:12px 18px;font-weight:800;cursor:pointer;transition:.2s;text-decoration:none}
 .btn-primary{background:var(--primary);color:#fff}
@@ -146,6 +150,82 @@ body{font-family:Inter,system-ui,-apple-system,Segoe UI,Arial,sans-serif;backgro
   .header{flex-direction:column;align-items:flex-start}
   .form-grid{grid-template-columns:1fr}
 }
+
+/* ==========================================
+   AJUSTE FINO: Header + Tabs (sinergia visual)
+   - No cambia tu sistema, solo armoniza
+   ========================================== */
+
+/* Header: ritmo y consistencia con card/tabs */
+.header{
+  margin-bottom:14px;              /* antes 24px: acerca tabs al header */
+  padding-bottom:10px;             /* crea “base” visual */
+  border-bottom:1px solid #e5e7eb; /* línea sutil como guía */
+}
+
+.page-title{
+  line-height:1.1;
+}
+
+.kicker{
+  line-height:1.3;
+}
+
+/* Tabs: estilo “pill-tab” integrado con card */
+.tabs{
+  display:flex;
+  gap:10px;
+  margin:12px 0 14px;              /* respira entre header y card */
+  padding-bottom:0;
+  border-bottom:none;              /* la línea ya la aporta el header */
+  flex-wrap:wrap;
+}
+
+.tab{
+  background:#f8fafc;
+  border:1px solid #e5e7eb;
+  border-radius:12px;
+  padding:10px 14px;
+  font-weight:800;
+  color:var(--muted);
+  cursor:pointer;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  transition:.2s;
+}
+
+.tab i{
+  font-size:14px;
+  color:inherit;
+}
+
+.tab:hover{
+  background:#ffffff;
+  color:var(--ink);
+  border-color:#dbe3ee;
+}
+
+.tab.active{
+  background:#ffffff;
+  color:var(--primary);
+  border-color:#bfdbfe;
+  box-shadow:0 1px 0 rgba(16,24,40,.04);
+}
+
+/* Unión visual Tabs -> Card (la primera card bajo las tabs) */
+.tabs + .tab-content .card{
+  border-top-left-radius:12px;
+  border-top-right-radius:12px;
+}
+
+/* Si querés efecto “encastre” (opcional): solo si te gusta */
+.tabs + .tab-content .card{
+  margin-top:0;
+}
+
+
+
 </style>
 </head>
 <body>
@@ -161,7 +241,7 @@ body{font-family:Inter,system-ui,-apple-system,Segoe UI,Arial,sans-serif;backgro
           <i class="fa-solid fa-file-medical"></i>
           Órdenes Médicas
         </h1>
-        <div class="kicker">Emití y gestioná órdenes firmadas digitalmente</div>
+        <!-- <div class="kicker">Emití y gestioná órdenes firmadas digitalmente</div> -->
       </div>
       <?php if ($tiene_claves): ?>
         <button class="btn btn-primary" id="btnNuevaOrden">
@@ -311,8 +391,7 @@ body{font-family:Inter,system-ui,-apple-system,Segoe UI,Arial,sans-serif;backgro
           <div class="alert alert-info" style="margin-top:20px">
             <i class="fa-solid fa-shield-halved"></i>
             <div style="font-size:13px">
-              Esta orden será <strong>firmada digitalmente</strong> con tu clave privada RSA. 
-              El paciente podrá verificar la autenticidad de la firma usando tu clave pública.
+              Esta orden será <strong>firmada digitalmente.</strong> 
             </div>
           </div>
         </div>

@@ -98,8 +98,8 @@ $turnos_hoy = fetch_rows(
 }
 body{
   font-family: Arial, sans-serif;
-  background: url("https://i.pinimg.com/1200x/9b/e2/12/9be212df4fc8537ddc31c3f7fa147b42.jpg") no-repeat center center fixed;
-  background-size: cover;
+  background: url("../../assets/img/fondoAdmin.png") no-repeat center center fixed;
+  background-size: cover; /* Importante para que cubra toda la pantalla */
   color:#222;
 }
 
@@ -258,31 +258,31 @@ h1{
   <i class="fa fa-user-doctor"></i> Gestionar Medicos 
 </a>
 
-<a class="action-btn green" href="abmPacientes.php" title="ABM de Pacientes">
+<a class="action-btn" href="abmPacientes.php" title="ABM de Pacientes">
   <i class="fa fa-users"></i> Gestionar Pacientes
 </a>
 
-<a class="action-btn purple" href="abmTecnicos.php" title="ABM de Técnicos">
+<a class="action-btn" href="abmTecnicos.php" title="ABM de Técnicos">
   <i class="fa fa-user-gear"></i> Gestionar Tecnicos
 </a>
 
-<a class="action-btn bluepetrol" href="abmAdministrativos.php" title="ABM de Administrativos">
+<a class="action-btn" href="abmAdministrativos.php" title="ABM de Administrativos">
   <i class="fa fa-user-gear"></i> Gestionar Administrativos
 </a>
 
-<a class="action-btn purple" href="abmEspecialidades.php" title="ABM de Especialidades">
+<a class="action-btn" href="abmEspecialidades.php" title="ABM de Especialidades">
   <i class="fa fa-user-gear"></i> Gestionar Especialidades
 </a>
 
-<a class="action-btn purple" href="abmEstudios.php" title="ABM de Estudios">
+<a class="action-btn" href="abmEstudios.php" title="ABM de Estudios">
   <i class="fa fa-user-gear"></i> Gestionar Estudios
 </a>
 
-<a class="action-btn indigo" href="agenda.php" title="Turnos / Feriados / Excepciones">
+<a class="action-btn" href="agenda.php" title="Turnos / Feriados / Excepciones">
   <i class="fa fa-calendar-days"></i> Gestionar Turnos
 </a>
 
-<a class="action-btn celeste" href="reportes.php">
+<a class="action-btn" href="reportes.php">
   <i class="fa fa-chart-line"></i> Gestionar Reportes
 </a>
 
@@ -291,7 +291,6 @@ h1{
       </div>
     </div>
 
-    <div class="footer">Clínica AP · Panel Administrador</div>
   </main>
 </body>
 </html>

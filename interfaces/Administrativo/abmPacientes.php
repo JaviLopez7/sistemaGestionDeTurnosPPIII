@@ -9,7 +9,7 @@ define('T_PACIENTE',  'pacientes');
 define('T_AFILIADOS', 'afiliados');
 
 // ===== Seguridad / Sesión =====
-$rol_requerido = 5; // Administrativo
+$rol_requerido = [3, 5]; 
 require_once('../../Logica/General/verificarSesion.php');
 require_once('../../Persistencia/conexionBD.php');
 if (session_status() === PHP_SESSION_NONE) { session_start(); }
@@ -525,7 +525,7 @@ input:read-only{background:#f3f4f6;color:#6b7280}
               <td><?= esc($p['fecha_creacion']) ?></td>
               <td>
                 <a class="btn-outline btn-sm" href="abmPacientes.php?action=edit&id=<?= (int)$p['id_usuario'] ?>"><i class="fa fa-pen"></i> Modificar</a>
-                <form style="display:inline" method="post" onsubmit="return confirm('¿Eliminar este paciente?')">
+               <form style="display:inline" method="post" class="js-delete-paciente">
                   <input type="hidden" name="form_action" value="delete"/>
                   <input type="hidden" name="id_usuario" value="<?= (int)$p['id_usuario'] ?>"/>
                   <button class="btn-danger btn-sm" type="submit"><i class="fa fa-trash"></i> Eliminar</button>
@@ -812,5 +812,35 @@ buscador.addEventListener('input', async () => {
 });
 
 </script>
+
+<script>
+  // Confirmación SweetAlert2 para eliminar paciente (borrado lógico)
+  document.addEventListener('submit', function (e) {
+    const form = e.target;
+    if (!form.classList.contains('js-delete-paciente')) return;
+
+    e.preventDefault();
+
+    Swal.fire({
+      title: '¿Eliminar este paciente?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Sí',
+      cancelButtonText: 'No',
+      reverseButtons: true,
+      focusCancel: true,
+      confirmButtonColor: '#52d254ff',
+      cancelButtonColor: '#f22b2bff'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        form.submit(); // continúa el POST normal
+      }
+    });
+  });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </body>
 </html>

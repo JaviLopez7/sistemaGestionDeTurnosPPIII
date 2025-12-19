@@ -75,7 +75,7 @@ foreach ($rows as $p) {
             <td>" . htmlspecialchars($p['fecha_creacion']) . "</td>
             <td>
                 <a class='btn-outline btn-sm' href='abmPacientes.php?action=edit&id={$p['id_usuario']}'><i class='fa fa-pen'></i> Modificar</a>
-                <form style='display:inline' method='post' onsubmit='return confirm(\"¿Eliminar este paciente?\")'>
+               <form style='display:inline' method='post' action='abmPacientes.php' class='js-delete-paciente'>
                     <input type='hidden' name='form_action' value='delete'/>
                     <input type='hidden' name='id_usuario' value='{$p['id_usuario']}'/>
                     <button class='btn-danger btn-sm' type='submit'><i class='fa fa-trash'></i> Eliminar</button>

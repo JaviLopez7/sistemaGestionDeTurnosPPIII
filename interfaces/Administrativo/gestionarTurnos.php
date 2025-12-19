@@ -1853,10 +1853,10 @@ select option{padding:8px}
     <a class="btn<?= $tab==='turnos'?'':' btn-outline' ?>" href="gestionarTurnos.php?tab=turnos"><i class="fa fa-calendar-check"></i> Turnos Medicos</a>
     <a class="btn<?= $tab==='turnos_estudios'?'':' btn-outline' ?>" href="gestionarTurnos.php?tab=turnos_estudios"><i class="fa fa-flask"></i> Turnos Estudios</a>
     <?php if ($HAS_FERIADOS): ?>
-      <a class="btn<?= $tab==='feriados'?'':' btn-outline' ?>" href="gestionarTurnos.php?tab=feriados"><i class="fa fa-umbrella-beach"></i> Feriados</a>
+      <!-- <a class="btn<?= $tab==='feriados'?'':' btn-outline' ?>" href="gestionarTurnos.php?tab=feriados"><i class="fa fa-umbrella-beach"></i> Feriados</a> -->
     <?php endif; ?>
     <?php if ($HAS_EXCEPCIONES): ?>
-      <a class="btn<?= $tab==='excepciones'?'':' btn-outline' ?>" href="gestionarTurnos.php?tab=excepciones"><i class="fa fa-ban"></i> Excepciones</a>
+      <!-- <a class="btn<?= $tab==='excepciones'?'':' btn-outline' ?>" href="gestionarTurnos.php?tab=excepciones"><i class="fa fa-ban"></i> Excepciones</a> -->
     <?php endif; ?>
   </div>
 
